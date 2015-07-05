@@ -1,0 +1,89 @@
+Technical Writing and You: The reasons behind why you should create great docs.
+===============================================================================
+
+Great documentation can increase adoption, improve experience, encourage
+contributions, and improve project quality.  Here we provides reasons,
+tips, tools, and links to improve your documentation in 4 sections:
+
+. Audience
+. Motivation
+. Writing Style
+. Templates/Tools
+
+=== Audience
+
+Critically important is understanding the goal of the documentation you are producing.
+This should include reasoning about the project or feature you are building,
+understanding why it is important, and learning who the target audience will be.
+When determining where to start ask yourself:
+
+. Is the reader familiar with this problem space? link:http://writingcenter.unc.edu/handouts/audience/["How Much Should I Explain?"] from The Writing Center at UNC
+. Is there terminology here that will be unfamiliar? Reader frustration can stem from being unable to find what they need. link:http://www.freelancewriting.com/articles/article-great-technical-writing.php["Improving Reader Accessibility"] by Barry Millman
+
+Figuring out the target audience doesn't stop here. Make sure the person reviewing
+your documentation is a member of this audience. Ask them questions related to
+what they took away from the document, how readable it was, and if they fell asleep.
+
+=== Motivation
+
+Improved motivation leads to better writing. link:http://www.tandfonline.com/doi/abs/10.1080/10573560308222#.VZmuZen0_8U["Self-Efficacy Beliefs, Motivation, and Achievement in Writing"] by Frank Pajares -- link:https://books.google.com/books?id=VT7YCz2G-iQC&lpg=PA158&ots=R99ONk4WjC&dq=writing%20motivation%20outcome&lr&pg=PA160#v=onepage&q&f=false[full text]
+
+After you have determined your audience it is important to understand the motivation
+behind your documentation. As an example, the excellent online writing resource
+link:http://docs.writethedocs.org/[Write The Docs] has a list of reasons for open
+source project documentation link:http://docs.writethedocs.org/writing/beginners-guide-to-docs/#why-write-docs[here].
+
+To understand this further ask yourself:
+
+. Why does this project motivate me?
+. What skills can I improve during this task?
+. What is my reader hoping to accomplish?
+
+While understanding your own internal motivators is outside the scope of this 
+document it can be immensely helpful. If you are unsure what motivates you it 
+will be difficult to tie these documentation goals back to internal desires. 
+Further resources on motivation:
+
+. link:https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs[Maslow's Hierarchy of Needs]
+. link:https://en.wikipedia.org/wiki/Motivation#Psychological_theories_and_models[Motivation: Theories and Models]
+
+
+=== Writing Style
+
+Balancing the complexity of explaining technical concepts and short attention spans
+makes technical writing a difficult task. When writing documentation there are
+several critical things you should pay attention to:
+
+. Be clear and Concise. link:http://pcs.ieee.org/communication-resources-for-engineers/style/write-clearly-and-concisely/["Write Clearly and Concisely"] from IEEE Professional Communication Society. The link:https://owl.english.purdue.edu/owl/resource/635/01/["Paramedic Method"] by Richard Lanham will help reduce 'filler'.
+. Active Voice will shorten text and improve comprehension. link:http://www.sciencedirect.com/science/article/pii/0010028572900138["On the comprehension of active and passive sentences"] by David R. Olson, Nikola Filby. link:http://writingcenter.unc.edu/handouts/passive-voice/["Defining the Passive Voice"] from The Writing Center at UNC.
+. Include Citations. link:http://www.cs.uky.edu/~raphael/writing.html["Hints on Writing Style"] by Raphael A. Finkel
+. Ensure proper grammar, punctuation, and avoid run-on sentences. link:http://www.che.wsu.edu/~rzollars/friedly-writing.pdf["Top Ten Ways to Improve Technical Writing"] by John C. Friendly
+
+=== Templates/Tools
+
+It can be daunting to start a technical document. We've covered some tips for
+how to understand your audience, writing conscisely, and motivation. How do
+we get started with the actual document? One thing the team I'm on has found
+very helpful is using templates. These are living templates that encourage
+users to provide feedback about them, lay out a structure that covers most
+cases, and will improve the mental space the author is in when writing. An
+example of a good template for an open source project's root README can be
+found link:https://github.com/writethedocs/docs/blob/master/docs/writing/beginners-guide-to-docs.rst#template[here].
+
+This project also includes templates for several other document types link:https://github.com/mbbx6spp/styleguides/tree/master/docs[here].
+
+Validating documentation is a difficult task to automate. There are several
+resources online that can be helpful:
+
+. The link:http://www.hemingwayapp.com/beta/index.html[Hemingway App] will detect incorrect voice, run-on sentences,
+  and other readability problems.
+. link:http://matt.might.net/articles/shell-scripts-for-passive-voice-weasel-words-duplicates/[These tools] from Matt Might can detect passive voice, weasel words, and lexical illusions.
+  These could be tied into your documentation publishing system as part of the review process.
+. A link:https://github.com/devd/Academic-Writing-Check[vim] ruleset for detecting common mistakes.
+
+=== Further Reading:
+
+. link:http://homepages.ed.ac.uk/martinc/msc/doc/hc.pdf["Everyone Can Write Better"] by H. H. Clark
+. link:http://eric.ed.gov/?id=ED132595["Some Effects of Apprehension on Writing Performance"] by Virginia Book - link:http://files.eric.ed.gov/fulltext/ED132595.pdf[full text]
+. link:http://web.ece.ucdavis.edu/~jowens/commonerrors.html["Common Errors in Technical Writing"] by John Owens
+. As Scroobius Pip said, "Thou shall not question link:https://www.youtube.com/watch?v=J7E-aoXLZGY[Stephen Fry]"
