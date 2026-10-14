@@ -1,0 +1,79 @@
+---
+description: Before touching any file inside a sub-repository — or acting on that repo's behalf anywhere, including a PR comment or review, a ticket, a chat post, or a workflow dispatch — read that repo's own AGENTS.md/CLAUDE.md and skills, and check the root skills for cross-cutting conventions — never apply this repo's or another repo's conventions to work that belongs to a different repo.
+alwaysApply: true
+---
+
+# Read the sub-repository's own agent config first — always apply
+
+This repository is the routing layer, not the standards owner, for any repository it routes to: a
+sub-repository checked out beneath it, a vendored tree, a sibling clone. Before editing a file in
+one — **or taking any action on that repo's behalf**, such as posting a PR comment or review,
+opening or commenting on a ticket, posting to chat, or dispatching one of its workflows:
+
+1. **Read that repository's `AGENTS.md`** (root, and any nested one closer to the files you're
+   touching) and its `CLAUDE.md` if present.
+2. **Check its `.agents/skills/`** for a skill matching the kind of change you're making, and read
+   it before improvising a tool path or convention.
+3. **If the repository has no `AGENTS.md`** (a support repo such as a shared module library),
+   identify the system's canonical owning repository (named after the system) and read *that*
+   repo's `AGENTS.md` instead.
+4. **A repository you cloned yourself this session counts.** Its skills are not registered with
+   your tool until the next session, so list its `.agents/skills/` and read what applies rather
+   than waiting to be told it exists.
+5. **A sub-repository's own rules load lazily. Trigger the load first.** Measured on Claude Code
+   2.1.283: a nested `CLAUDE.md`, and every file it `@`-imports, enters the session on the first
+   **Read tool** call on any file under that directory, at any depth. A `cat` or `grep` in Bash
+   loads nothing, a repository whose only instruction file is a root `AGENTS.md` loads nothing, and
+   a directory outside the session's start directory loads nothing even with `--add-dir`. So before
+   your first write in a sub-repository, use the Read tool on its `CLAUDE.md` (or
+   `.claude/CLAUDE.md`, or `AGENTS.md` where that is all it has), and read the rules its `@` lines
+   name that you have not seen. A subagent that reads into the sub-repository gets the rules in
+   its own context only, not yours.
+6. **A checkout behind its remote is a stale skill set, silently.** Whatever is on disk is what
+   gets read, so a repository sitting N commits behind its default branch yields the skills that
+   existed at that commit and nothing warns you. Check before trusting its guidance, resolving the
+   default branch rather than assuming its name:
+
+   ```bash
+   cd <repo> && git fetch origin && git remote set-head origin --auto >/dev/null
+   base=$(git symbolic-ref --short refs/remotes/origin/HEAD | sed 's#^origin/##')
+   git rev-list --count HEAD..origin/"${base:?}"
+   ```
+
+   `set-head --auto` is not redundant: `refs/remotes/origin/HEAD` is a symbolic ref that `git fetch`
+   does not maintain, so a clone that never had it set -- or one whose remote has since changed its
+   default branch -- has no `origin/HEAD` to read, and that is ordinary rather than evidence of
+   anything. `--auto` populates it from the remote once the branch ref exists, which the preceding
+   fetch guarantees.
+
+   A non-zero count means fetch and fast-forward. If the count still errors after that, the clone
+   is shallow or its fetch refspec is pinned to one branch. Repair the clone (full depth, full
+   refspec) before reading any count as proof of freshness; a command that failed is not a checkout
+   that is current.
+7. **Also check this repository's root skills** at `.agents/skills/` for cross-cutting conventions
+   that apply regardless of which repository you're in: branch and worktree work, CI workflow
+   changes, infrastructure patterns, changes spanning two or more repositories.
+
+## Forbidden
+
+- Editing any file in a sub-repository before completing the AGENTS.md/CLAUDE.md check for that
+  repo.
+- Acting on a sub-repository's behalf — a PR comment, review, or reply on its repository, a ticket,
+  a chat post — before completing that same check. The trigger is the repo the work belongs to, not
+  whether a file in it changed: writing *about* a repo is governed by its rules just as editing it
+  is.
+- Treating a sub-repository's skills as absent because they are not in your registered skill list.
+  If the repository exists on disk, its `.agents/skills/` is readable now.
+- Assuming a sub-repository's always-on rules are in effect because its skills are registered.
+  Skills arrive at startup; the nested `CLAUDE.md` and rules arrive on your first Read tool call
+  under that directory, and a Bash read does not count. Nothing tells you they are missing.
+- Filling in this repository's, or another repository's, pull request template, checklist, or
+  preview convention on a PR opened against a different repository. The repo you open the PR
+  against owns its body -- see [`writing-pull-requests`](../skills/writing-pull-requests/SKILL.md).
+- Applying this repository's own conventions, or another repository's, to files that belong to a
+  different repository — repo-local standards win for work done in that repo; this repository's
+  job is routing, not authoring the other repo's rules.
+- Assuming a repository with no `AGENTS.md` has no constraints — check its system's canonical
+  owning repository instead.
+- Reading only the first section of a repository's `AGENTS.md` and stopping — critical rules are
+  often further down or at the end.

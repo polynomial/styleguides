@@ -1,0 +1,23 @@
+---
+description: Branch names, the push-before-done rule, the merge gate, the automated reviewer, and review replies for pull requests an agent opens
+alwaysApply: true
+---
+
+# Agent pull requests
+
+- **Branch names** describe the work: no tool prefix, no `/`.
+- **Push before you say done.** When you believe the brief is met, commit, push and open the PR —
+  partial work and negative findings included, in every participating repo. A worktree is scratch
+  space the repository may purge. The pushed branch is the record. Never store anything only in a
+  worktree (local env files, personal notes, build output). A worktree the purge holds is a push
+  you owe.
+- **Agents never merge their own PR.** It ends the session open, non-draft, checks green, the
+  automated reviewer's comments read. Merge only on the user's explicit instruction in this
+  session, and never with `--auto` or `--admin`.
+- **The automated reviewer:** wait with the monitor script the repository provides, never a loop of
+  your own. A draft gets no review. A rate-limit or a timeout means the gate is unmet: tell the
+  user once and move on. Procedure:
+  [`pr-comment-merge-policy`](../skills/pr-comment-merge-policy/SKILL.md).
+- **Review replies** open with the agent disclosure line and go on each thread, never as one
+  summary. Resolve only a thread you addressed:
+  [`resolve-addressed-threads`](resolve-addressed-threads.mdc).

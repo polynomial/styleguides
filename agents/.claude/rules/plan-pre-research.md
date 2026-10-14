@@ -1,0 +1,1 @@
+../../.agents/rules/plan-pre-research.mdc

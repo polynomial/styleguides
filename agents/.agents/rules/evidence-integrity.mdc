@@ -1,0 +1,22 @@
+---
+description: Every number, record, and negative claim is produced by a real, clean, re-runnable observation — never carried forward, reconstructed, or fabricated
+alwaysApply: true
+---
+
+# Evidence integrity
+
+- **Numbers are computed, never carried forward.** A figure in a doc, PR or chat message comes from
+  a committed, re-runnable script or command whose verbatim output you quote. Pin its window and
+  annotate every epoch with its UTC time. Re-derive downstream figures after fixing an upstream one.
+- **Never hand-type an epoch.** Compute it from `date +%s` or `time.time()`, and check the year.
+- **Raw data is saved verbatim at acquisition.** Never reconstruct, template-diff or summarize a
+  raw record. Re-fetch it or mark it unverified. Large payloads go to object storage, with a small
+  receipt committed beside the write-up, never a `.gitignore` exception.
+- **A negative claim names its observation point.** Before "X never happens", prove the emitter's
+  guards cover the traffic, then confirm with a raw-string count at the rawest layer.
+- **Output from a failed command is untrusted.** Fix the command, get exit 0, then read it.
+- **Never fabricate work.** Every claimed run, iteration or result maps to a real tool call in this
+  session. If you did not run it, say so.
+- **A number from driving an AI assistant or agent** — tool calls, eval result, A/B arm — follows
+  [`agent-evals.md`](../../docs/agent-evals.md): name the scope the prompt must carry, equal
+  denominators, read the shard log. A blind skill test never loads its answer key first.

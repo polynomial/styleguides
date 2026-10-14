@@ -1,0 +1,23 @@
+---
+description: Apply behavioral-guidelines reasoning and implementation discipline before any non-trivial code change, analysis, design, investigation, or review — do not skip because a task looks simple enough to reason about from memory.
+alwaysApply: true
+---
+
+# Behavioral & reasoning guidelines — always apply
+
+Before writing, reviewing, or refactoring any code, and before any non-trivial analysis, design,
+investigation, proposal, or review: read and apply
+[`behavioral-guidelines/SKILL.md`](../skills/behavioral-guidelines/SKILL.md) — its "Explore the
+problem" (A1–A6) and "Converge on the design" (A7–A11) sections. Implementation discipline lives in
+[`coding-principles/SKILL.md`](../skills/coding-principles/SKILL.md).
+
+This rule exists because that discipline is easy to skip when a task feels tractable without it —
+the skill's own gate is "MUST USE," which under discretionary skill-loading is a request,
+not a guarantee. The floor here is the guarantee that the skill gets read; the skill's own content
+governs, not a summary of it here.
+
+## Forbidden
+
+- Skipping the skill because "this one's simple enough" on anything beyond a trivial, single-line
+  change.
+- Acting on a memory of a previous read instead of the skill's current text.

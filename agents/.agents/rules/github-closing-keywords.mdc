@@ -1,0 +1,66 @@
+---
+description: A closing keyword (fix, close, resolve, any tense) directly before a GitHub reference in a pull request body, title or commit message is a command GitHub executes on merge, in any repository — never write one next to a link to something that must stay open.
+alwaysApply: true
+---
+
+# Closing keywords are executable — always apply
+
+Before publishing any text GitHub will render for a pull request — the body, the title, a commit
+message — check it for `close`, `closes`, `closed`, `fix`, `fixes`, `fixed`, `resolve`, `resolves`
+or `resolved` followed by a reference to an issue or pull request. When that text reaches the
+default branch, **GitHub closes whatever the reference points at**, in any repository the merging
+account can write to, and a pull request is as valid a target as an issue.
+
+Measured against GitHub itself on 2026-09-09, fifteen shapes, not recalled from documentation:
+
+- **Every reference form fires**: `#N`, `owner/repo#N`, a bare URL, an angle-bracket autolink
+  `<url>`, and a markdown link `[any text](url)`.
+- **Meaning does not matter; adjacency does.** `This does not fix #7` closes #7. A colon after the
+  keyword is fine. What stops it is a token between the keyword and the reference: a word, a
+  parenthesis, a newline.
+- **Inert forms**: a code span (`` `owner/repo#N` ``), an HTML comment, or a word between
+  (`the fix is in`, `opened as`, `fixed in`).
+- **Three surfaces**: the body, the title, and the commit message. A squash merge copies the body
+  into the commit.
+- **No pre-merge signal exists for a pull-request target**: GitHub's `willCloseTarget` is `false` for
+  them, so nothing on GitHub's side will warn you.
+
+The dangerous shape is a write-up about an open piece of work that merges before the work does — an
+investigation body linking its fix, a lesson linking the change it came from, a sibling-repo pull
+request linking the other half. In one month it closed three pull requests at the organisation
+that wrote this rule: one attributed to the human who merged the write-up, one the author's own
+fix closed for five hours by his own investigation, and one closed from an automated agent's
+lesson body and then announced in chat as a rejection.
+
+## Do this
+
+Say it without the keyword touching the link: `Opened as <link>`, `The change is <link>`,
+`fixed in <link>`. Or wrap the reference in a code span. Before pushing, run the check over what
+you wrote:
+
+```bash
+grep -nEi '\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\b:?[[:space:]]*(\[[^]]*\]\(https?://github\.com/[^)]+/(pull|issues)/[0-9]+|<?https?://github\.com/[^/[:space:]]+/[^/[:space:]]+/(pull|issues)/[0-9]+|([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)?#[0-9]+)' <file>
+```
+
+A hit is a line GitHub will act on. An automated agent that opens pull requests should run the
+equivalent parser over every title, body and commit it writes. An agent opening a pull request by
+hand gets no such check, which is what this rule is for.
+
+Use the keyword on purpose only when the target **should** close on merge and it is in the same
+repository you are merging into — the case GitHub designed it for.
+
+## Forbidden
+
+- `fix`, `close` or `resolve` in any tense directly before `#N`, `owner/repo#N`, a GitHub URL, an
+  autolink or a markdown link, in a pull request body, title or commit message, unless closing that
+  target on merge is the intent.
+- Relying on negation, tense or surrounding prose to make the keyword inert. Only a token between,
+  a code span or an HTML comment does.
+- Reading a pull request that closed with no review and no comment as somebody's decision. Read the
+  timeline's `closed` event actor first; a close in the same second as a merge elsewhere by that
+  actor is this mechanism, and a one-call `PATCH` with `state=open` restores it untouched.
+
+## Why this exists
+
+Added 2026-09-09, after the fifteen-shape probe above and the three closed pull requests it
+explained.

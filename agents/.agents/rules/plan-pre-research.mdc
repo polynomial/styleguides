@@ -1,0 +1,16 @@
+---
+description: Complete all resolvable research before CreatePlan or presenting an implementation blueprint — plans must not contain phases that defer knowable work.
+alwaysApply: true
+---
+
+# Plan pre-research — always apply
+
+Before calling `CreatePlan`, switching to plan mode, or presenting a final implementation blueprint
+for approval: run the procedure in
+[`plan-pre-research/SKILL.md`](../skills/plan-pre-research/SKILL.md) — every unknown resolvable
+with read-only tools must be resolved before the plan is written, not deferred into it.
+
+## Forbidden
+
+- A plan phase or todo that defers knowable work (the skill names the exact forbidden phrasings).
+- Presenting a plan without checking it against the skill's self-check step first.

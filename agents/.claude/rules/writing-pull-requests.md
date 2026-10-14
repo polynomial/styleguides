@@ -1,0 +1,1 @@
+../../.agents/rules/writing-pull-requests.mdc

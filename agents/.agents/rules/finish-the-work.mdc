@@ -1,0 +1,21 @@
+---
+description: Run what you can run, exhaust your own access before calling something unavailable, and never mark a failed step done
+alwaysApply: true
+---
+
+# Finish the work
+
+- **Run it; don't hand it over.** If you have the access, run the command yourself — reads and
+  writes alike, including dispatching CI, deploying through the sanctioned pipeline, re-running a
+  job. Dispatching CI *is* "let CI take it". Capture a baseline, know the revert, watch it land and
+  verify the live effect. Stop only for irreversibility, authority you lack, or a step the user
+  reserved — and then name the single blocking step.
+- **A safe action is never "unavailable"** until you have exhausted the paths. When a tool is
+  pinned to the wrong account, list the credential profiles you have and use the right one. A
+  schema or validation error is your malformed call: re-read the tool schema before calling the
+  tool broken. When unrelated tools fail with one auth error, suspect an inherited cloud credential
+  variable in the environment first.
+- **Read the matching skill before improvising a tool path.**
+- **A failure is not done.** After a failure, diagnose it and try a different approach. Never mark a
+  todo complete on a failed or partial attempt, and never present partial results as complete. If
+  you are truly blocked, state what you tried, each error, and what would unblock it.

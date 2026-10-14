@@ -1,0 +1,17 @@
+---
+description: Fire a research query at the institutional-context tool at the start of any non-trivial task, in parallel with the first concrete step — code search answers what; only the record of pull requests, chat, tickets, docs and incidents answers why, who, and when.
+alwaysApply: true
+---
+
+# Context research — always apply
+
+At the start of any non-trivial planning, investigation, refactor, or feature task — in parallel
+with the first concrete step, not after — fire a research query at the institutional-context tool:
+whatever indexes your pull requests, chat, tickets, design docs and incidents. Full doctrine and
+trigger list: [`context-research/SKILL.md`](../skills/context-research/SKILL.md).
+
+## Forbidden
+
+- Waiting until stuck, or waiting for the user to ask, before firing the query.
+- Treating a research result as fact on its own authority rather than a lead — prove it against
+  current code or live evidence, per the skill's "Leads, never verdicts" section.

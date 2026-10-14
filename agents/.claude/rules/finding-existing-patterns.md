@@ -1,0 +1,1 @@
+../../.agents/rules/finding-existing-patterns.mdc

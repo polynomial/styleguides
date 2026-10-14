@@ -1,0 +1,1 @@
+../../.agents/rules/github-closing-keywords.mdc

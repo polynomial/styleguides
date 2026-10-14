@@ -1,0 +1,1 @@
+../../.agents/rules/never-force-push.mdc

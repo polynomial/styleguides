@@ -1,0 +1,1 @@
+../../.agents/rules/local-environment.mdc

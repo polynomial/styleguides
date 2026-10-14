@@ -1,0 +1,1 @@
+../../.agents/rules/sub-repo-agents-md.mdc

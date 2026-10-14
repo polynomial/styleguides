@@ -1,0 +1,1 @@
+../../.agents/rules/production-safety.mdc

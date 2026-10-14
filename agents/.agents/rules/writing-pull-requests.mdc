@@ -1,0 +1,16 @@
+---
+description: Before you write or rewrite a pull request body, read the writing-pull-requests skill. The body carries mandatory sections and a one-screen budget, and an agent that never loads the skill writes a session log instead.
+alwaysApply: true
+---
+
+# Write a pull request body to the skill — always apply
+
+Before you write or rewrite the body of a pull request, in this repository or any repository it
+routes to: read and apply
+[`writing-pull-requests/SKILL.md`](../skills/writing-pull-requests/SKILL.md).
+
+## Forbidden
+
+- Writing a pull request body from your own defaults, or from the shape of a body you saw earlier.
+- Dropping a section because the change looks small. A small change gets a short section.
+- Ticking a checkbox in the repo's template. That field is the human author's attestation.
