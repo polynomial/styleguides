@@ -1,0 +1,20 @@
+---
+description: Before marking any task, ticket, or PR complete, or posting a final answer, re-read the original request and verify every requirement against actual output, then write a short unprompted self-evaluation.
+alwaysApply: true
+---
+
+# Verify before complete — always apply
+
+Before marking the final todo done, telling the user a task is finished, or posting a final
+chat or pull request answer: run the procedure in
+[`verify-before-complete/SKILL.md`](../skills/verify-before-complete/SKILL.md) — re-read the brief,
+verify every requirement against actual produced output, then close with an unprompted self-eval.
+
+## Forbidden
+
+- Completing on intent ("should work") instead of running the skill's verification-per-requirement
+  check.
+- Marking the last todo done with commits sitting unpushed, or with a blocking gap reclassified as
+  deferred just to reach "done."
+- Reporting a documented failure, or an actor's own success claim, as done when the brief was to
+  make something work.

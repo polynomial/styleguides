@@ -1,0 +1,19 @@
+---
+description: Architecture assessments, options matrices and ADR sets are scored on receipts, answer the existence question first, and present one current answer
+alwaysApply: true
+---
+
+# Assessments
+
+Before writing or revising anything under `docs/assessments/`, an options matrix, a
+technology-selection doc or an ADR set, run
+[`architecture-assessment-evidence`](../skills/architecture-assessment-evidence/SKILL.md).
+
+## Forbidden
+
+- A score cell justified by a vendor's documented behaviour rather than this system's
+  configuration at a named commit, a verified PR state, or a dated measurement.
+- Scoring how well a component is built before stating what it buys, at measured load, that the
+  system would lose without it.
+- Two documents or two scorecards in the set that disagree, or correction banners in presentation
+  docs. History lives in the decisions doc and git.

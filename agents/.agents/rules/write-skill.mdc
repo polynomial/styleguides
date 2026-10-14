@@ -1,0 +1,24 @@
+---
+description: Before creating, renaming, moving, or editing any file under a repo's .agents/skills/ directory, read the write-skill guidance and follow the layout, naming, and registration conventions it states.
+alwaysApply: true
+---
+
+# Write a skill — always apply
+
+Before adding a file under `.agents/skills/`, or renaming, moving, or materially editing one — in
+this repository or any repository it routes to — read and apply
+[`write-skill/SKILL.md`](../skills/write-skill/SKILL.md): confirm a skill is the right artifact,
+place it in the owning repository, and follow the stated layout (`.agents/skills/<skill-name>/SKILL.md`,
+hyphen-separated, frontmatter `name` matching the directory) rather than inventing a local variant.
+
+The trigger is the file path, not the size of the edit: a skill is discovered by its frontmatter, so
+a one-line description change is a change to when every future agent loads it.
+
+## Forbidden
+
+- A new skill whose path, name, or frontmatter departs from the convention without the loader-level
+  reason the skill names.
+- Renaming, moving, or removing a skill without updating every reference to it, and its entry in
+  the owning repository's `AGENTS.md` index where that file keeps one, in the same change.
+- Adding a skill for something that is an always-on constraint (a rule), durable domain knowledge (a
+  reference), or a one-time record (a PR, ticket, or dated doc).

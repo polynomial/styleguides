@@ -1,0 +1,24 @@
+---
+description: Every text an agent writes for an engineer to read must follow ASD-STE100 Simplified Technical English. That covers a pull request body or title, a commit message, a review comment or reply, a ticket, and a chat message. Read the simple-english skill before you write it.
+alwaysApply: true
+---
+
+# Simple English for engineer-facing writing: always apply
+
+Before you write or rewrite any of these, read and apply
+[`simple-english`](../skills/simple-english/SKILL.md):
+
+- A pull request body, title, or commit message.
+- A review comment, a review summary, or a reply to review feedback.
+- A ticket summary, description, or comment.
+- A chat message to an engineer about work in this codebase.
+- A written answer to an engineer about work in this codebase.
+
+It does not bind code, identifiers, commands, file paths, quoted error text, or customer-facing
+marketing copy.
+
+## Forbidden
+
+- Cutting a hedge to reach a word count. The modal rule governs requirement strength, never
+  confidence.
+- Dropping a safety condition, an exception, or a scope qualifier to reach a word count.

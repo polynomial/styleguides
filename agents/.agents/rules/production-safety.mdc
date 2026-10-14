@@ -1,0 +1,29 @@
+---
+description: Gates for any action that changes production or reads production credentials — shared infrastructure state, destructive tests, storage-engine repair, dead-letter replays, side-door remote access, secrets
+alwaysApply: true
+---
+
+# Production safety
+
+- **Infrastructure-as-code on a shared production state:** read a full plan first. Apply only your
+  own resources with `-target`, from a saved plan proven `N add / 0 change / 0 destroy`. Never apply
+  drift you did not author. Prefer a dedicated resource over mutating a drifted shared one. Scoped
+  teardown mirrors the scoped apply. Detail:
+  [`production-changes`](../../docs/runbooks/production-changes.md).
+- **Never `terraform destroy -target`.** It destroys every dependent (5 targets planned 17 destroys
+  once). Delete precisely with the cloud CLI, then `apply -target` to recreate.
+- **Prove recovery before destroying.** Replace the component with its data intact, confirm it
+  serves, and only then discard data. A plan is not proof that a rebuild boots.
+- **Stream state-changing commands in full.** Never pipe a plan or apply, a deploy, a migration or a
+  build through `tail`, `head`, `grep` or a pager. `tee` to a file if needed.
+- **Storage-engine repair:** explicit user approval before a repair tool, a master or
+  region-server restart, a procedure abort, or a metadata-table edit.
+- **Replaying a dead-letter topic is a production data mutation.** Sort, dedup, scope and test
+  first, then validate downstream and open a ticket naming the affected users.
+- **Use only the sanctioned remote-access path.** No cloud run-command, session-manager,
+  parameter-store or agent-install side doors. If the sanctioned path is unreachable, stop and ask.
+- **Secrets:** identify a credential by `sha256[:16]`, length and prefix, and prove it by status
+  codes. Never print one. Enumerate every consumer of a shared secret before changing it. Detail:
+  [`secret-safe-diagnostics`](../../docs/runbooks/secret-safe-diagnostics.md).
+- **A config fix is verified at the point of harm**, not at the setting. Check the harmful work
+  tails off. If it does not, find the event-time lag before calling it fixed or failed.

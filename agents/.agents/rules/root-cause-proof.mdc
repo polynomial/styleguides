@@ -1,0 +1,17 @@
+---
+description: Before writing down a root cause in any RCA or investigation, prove it — never accept a prior incident, a symptom layer, or a stale code reference as the root cause.
+alwaysApply: true
+---
+
+# Root-cause proof — always apply
+
+Before declaring a root cause anywhere — for a production incident, a bug RCA, or a "why is X
+broken/slow/failing" investigation — run
+[`root-cause-proof/SKILL.md`](../skills/root-cause-proof/SKILL.md) and satisfy its evidence
+checklist before labeling anything "confirmed."
+
+## Forbidden
+
+- Writing "confirmed" without running the skill's checklist — label the cause hypothesis instead.
+- Citing a prior incident, or a code path recalled from memory, as proof rather than as a lead to
+  re-derive against this incident's live evidence and current source.

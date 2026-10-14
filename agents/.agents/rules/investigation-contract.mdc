@@ -1,0 +1,43 @@
+---
+description: How every production investigation runs and ends — live state first, ranked mitigations, proven root cause, and a written package in a PR
+alwaysApply: true
+---
+
+# Investigation contract
+
+A pager link or incident id in the prompt **is** the request to run the full
+[`oncall-investigation`](../skills/oncall-investigation/SKILL.md) workflow. Do not reply with only a
+summary, and do not ask whether to investigate. The procedure, templates and proof set are in
+[`investigations.md`](../../docs/investigations.md).
+
+## Order
+
+1. **Live state first.** Inspect the failing component before any log range, git history or PR
+   archaeology.
+2. **Ranked mitigations next.** Lowest blast radius first. Each option, "no action" included, states
+   scope, blast radius, reversibility, cost, feasibility and verification. Never call a production
+   change zero-risk.
+3. **Root cause last.** Run [`root-cause-proof`](../skills/root-cause-proof/SKILL.md) and check
+   open PRs and recent commits on the component first. Until the proof set is met, it is a
+   hypothesis.
+
+## The answer
+
+- Lead with the mechanism and the mitigation. "It self-resolved" is a status line, never the answer.
+- A recurrence (same fingerprint seen before) gets durable-fix work done this session — a PR, or the
+  owning ticket updated or created. "Do nothing, it drains" is never the recommendation.
+- Break-fix changes made live are codified in the owning repo, with a PR, before close-out.
+
+## The record
+
+Any material finding — a root cause, timeline, ranked mitigations, or "recovered on its own" — gets
+a package at `docs/investigations/<area>/<topic>_<YYYYMMDD>/README.md`. It holds a verbatim
+decision log of the user's prompts, and ADR blocks for every choice, plus rendered panel images
+for an RCA. It ends in a non-draft PR, left open for a human. Produce it; never offer it.
+
+## Forbidden
+
+- Timeline or history work before live state and mitigations are written down.
+- "Confirmed" root cause by analogy to a prior incident, from memory of code, or at a symptom layer.
+- Finishing past a primary source you could not read (ask the user to paste it).
+- A chat-only answer to a production "why is X broken" question.

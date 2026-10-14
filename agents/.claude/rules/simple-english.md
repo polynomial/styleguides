@@ -1,0 +1,1 @@
+../../.agents/rules/simple-english.mdc

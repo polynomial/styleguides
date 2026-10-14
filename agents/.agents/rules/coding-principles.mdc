@@ -1,0 +1,27 @@
+---
+description: Before writing, reviewing, or refactoring code in any language — including shell scripts, nix, and terraform — read and apply the coding-principles skill.
+alwaysApply: true
+---
+
+# Coding principles — always apply
+
+Before writing, reviewing, or refactoring code in this repository or any repository it routes to:
+read and apply [`coding-principles/SKILL.md`](../skills/coding-principles/SKILL.md) — the
+cross-repository source of truth for naming, self-documenting code, contracts, failure handling,
+and scope.
+
+The skill's own gate is "MUST USE," which under discretionary skill-loading is a request
+rather than a guarantee. The floor here is the guarantee that the skill gets read; the skill's
+content governs, not a summary of it here.
+
+The trigger is code, not language. A bash script, a nix expression, and a terraform module are as
+much in scope as application code in Java or TypeScript.
+
+## Forbidden
+
+- An explanatory implementation comment. If code needs one to be understood, the name or the
+  structure is what has to change; rationale and rejected alternatives go in the pull request or
+  ticket, per the skill's §2.
+- Replacing a failure with a plausible default — a fallback that fires on error and yields a value
+  the caller cannot distinguish from success.
+- Skipping the skill because the file is a script rather than an application source file.

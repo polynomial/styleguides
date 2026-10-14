@@ -1,0 +1,21 @@
+---
+description: What is always available on the workstation — a synced checkout, the local stacks, restorable env files, documented test logins, and the pinned tool environment — so it is never asked for
+alwaysApply: true
+---
+
+# Local environment
+
+- **Sync first.** Before work grounded in repo state, `git fetch` and check how far behind
+  `origin/<default>` the checkout is. Fast-forward a clean default branch. Otherwise account for the
+  lag; never reset.
+- **The local stacks always exist.** If the repository provides a way to run its services locally,
+  use it rather than asking, and drive the local instance when the hosted one returns access
+  errors.
+- **Env files are restorable, never asked for.** Keep a backup of each credential file outside the
+  checkout (`chmod 600`), restore from it, and refresh the backup after a credential edit. Never
+  paste env contents.
+- **Test logins:** the credentials the repository documents are in the environment or its env
+  file. Try them before reporting a login blocker.
+- **Commands:** run scripts through the repository's pinned tool environment (a nix shell, a
+  virtualenv, a lockfile runner). Use no interactive shells; pass `--yes`-style flags and append
+  `| cat` where a pager could open. Scripts read credentials from the environment.

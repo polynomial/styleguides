@@ -1,0 +1,17 @@
+---
+description: Before adding anything new — code, config, a workflow, a script, a skill, a document — find and use the existing pattern for how that kind of thing is already done; never introduce a second way as a side effect of a task.
+alwaysApply: true
+---
+
+# Finding existing patterns — always apply
+
+Before adding a new file, component, workflow, or convention in this repository or any repository
+it routes to: read and apply
+[`finding-existing-patterns/SKILL.md`](../skills/finding-existing-patterns/SKILL.md) — find the
+existing instances, conform to them, and treat "there is no existing pattern" as a claim you must
+prove, not a default you may assume.
+
+## Forbidden
+
+- Introducing a new shape "just this once" without running the skill's search first.
+- Concluding a pattern doesn't exist from a search that skipped gitignored or vendored trees.

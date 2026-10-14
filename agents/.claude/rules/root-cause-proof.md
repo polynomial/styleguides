@@ -1,0 +1,1 @@
+../../.agents/rules/root-cause-proof.mdc

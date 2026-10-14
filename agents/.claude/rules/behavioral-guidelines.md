@@ -1,0 +1,1 @@
+../../.agents/rules/behavioral-guidelines.mdc

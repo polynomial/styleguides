@@ -1,0 +1,18 @@
+---
+description: Respect the user's choices, rebuild on corrective feedback, delete what a consolidation replaces, and keep runtime facts out of hand-maintained files
+alwaysApply: true
+---
+
+# Deliverables
+
+- **A non-selection is not consent.** When the user answers your options with a question, research
+  it and re-present the options. Never proceed with an unchosen option, or rebrand it as "hybrid"
+  or "interim".
+- **On corrective feedback, rebuild the artifact.** Restate "done" in the user's words, then
+  regenerate it clean. No banners, correction blocks or retained superseded analysis. A correction
+  that makes the artifact longer is a red flag.
+- **A consolidation deletes what it subsumes, in the same PR.** Include a deletion ledger with a
+  re-runnable proof that nothing references what was removed.
+- **Declarations hold decisions; emitted records hold runtime facts.** Before adding a manifest,
+  registry or config surface, prove no existing artifact carries it and name what reads it. See
+  [`declarations-and-manifests`](../../docs/runbooks/declarations-and-manifests.md).

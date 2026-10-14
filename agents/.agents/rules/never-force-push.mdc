@@ -1,0 +1,51 @@
+---
+description: Never force push. Before any git push that rewrites history a remote already has -- after a rebase, an amend, a squash, or a restack of a stacked pull request -- in this repository or any repository it routes to that does not prescribe its own branch-update convention, move the branch forward with a merge or a correcting commit instead.
+alwaysApply: true
+---
+
+# Never force push — always apply
+
+An agent does not force push, in this repository or any repository it routes to that does not
+prescribe its own branch-update convention, in any of the forms it takes: `--force`,
+`--force-with-lease`, a `+refs/heads/...` refspec, or a plain `git push` of a branch whose history a
+rebase, an amend, or a squash has already rewritten. Move a published branch forward with a merge
+of the new base or a correcting commit. If the rewrite has already happened locally, do not push
+it: name the branch, name what the rewrite would break, and leave the decision with the human.
+
+Rewriting a published branch discards work no one in the session can see. This has been measured:
+an automated restack force-pushed two stacked branches once their base merged, and the dependent
+pull request came back conflicting with roughly ten add/add conflicts across files that should
+have merged cleanly — the history relationship was gone, not the content. The engineer who found
+it: "it should never force push - that can override people's work, make it hard to review".
+
+## Where the sub-repository governs instead
+
+[`sub-repo-agents-md`](sub-repo-agents-md.mdc) already settles the crossing: repo-local standards
+win for work done in that repo, and this repository's job is routing rather than authoring another
+repo's rules. A repository whose own `AGENTS.md` prescribes how its published branches are updated
+is outside this rule. Follow that repository's instruction; nothing in the Forbidden list below
+binds there.
+
+Read the repository's `AGENTS.md` before concluding it is silent — that check is
+`sub-repo-agents-md`'s first step, not an extra one this rule adds. A rebase-then-`--force-with-lease`
+workflow is a convention a repository may legitimately hold; where one does, follow it.
+
+## Forbidden
+
+Where this rule binds — this repository, and any repository that prescribes nothing:
+
+- Any force push, `--force-with-lease` included. The lease guards against a remote update you have
+  not fetched; it does nothing about a dependent branch or a stacked pull request, which is the
+  damage this rule exists to prevent.
+- The same act under another spelling: deleting the remote branch and pushing it again, pushing a
+  freshly built branch over the old name, or a `+refs/heads/...` refspec.
+- Rebasing a branch that already exists on a remote. Merge the new base into it instead, so the
+  ancestry its dependent branches and its review are built on survives.
+- Reporting a rewrite as done when what remains is a force push the agent will not make. Name the
+  branch, name what the rewrite would break, and leave the decision with the human.
+
+Everywhere, including a repository that governs itself:
+
+- Rewriting a branch that is not solely yours — one with a stacked pull request on it, a dependent
+  branch, or another author's commits. That is the case the incident above measured, and no
+  repo-local convention licenses it.

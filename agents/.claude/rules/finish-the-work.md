@@ -1,0 +1,1 @@
+../../.agents/rules/finish-the-work.mdc

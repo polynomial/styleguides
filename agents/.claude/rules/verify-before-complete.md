@@ -1,0 +1,1 @@
+../../.agents/rules/verify-before-complete.mdc

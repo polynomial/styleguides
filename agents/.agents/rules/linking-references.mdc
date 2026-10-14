@@ -1,0 +1,24 @@
+---
+description: When an agent names a pull request, ticket, commit, repository, document, CI run, or chat thread in text another person reads, it links that reference at its first mention. Read the linking-references skill before you write it.
+alwaysApply: true
+---
+
+# Link what you name: always apply
+
+Before you write or rewrite any of these, read and apply
+[`linking-references`](../skills/linking-references/SKILL.md):
+
+- A pull request body, or a commit message body.
+- A review comment, a review summary, or a reply to review feedback.
+- A ticket description or comment.
+- A chat message.
+- A written answer to an engineer or to the user, including a chat answer and a progress update.
+- A committed document.
+
+## Forbidden
+
+- A bare ticket key, pull request number, repository name, or "the doc" at its first mention, on a
+  surface that does not link it for you. A code span around it is still bare.
+- A URL that you did not resolve from a source: a guessed number, a guessed path, or a guessed
+  route.
+- "here", "this link", or a raw URL as the link text.

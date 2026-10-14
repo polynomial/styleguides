@@ -1,0 +1,18 @@
+---
+description: Before adding, restoring, or re-enabling anything a bug report implies is missing, or before declaring a root cause, check whether it was removed on purpose and what else is already in flight. A bug report is evidence code broke, never evidence it should exist.
+alwaysApply: true
+---
+
+# Evidence before changing code — always apply
+
+Before writing any fix prompted by an error, an error-tracker event, a support ticket, or "X used
+to work" — and before naming a root cause in an RCA — run the gate in
+[`evidence-before-changing-code/SKILL.md`](../skills/evidence-before-changing-code/SKILL.md): a bug
+report is evidence code broke, never evidence it should exist.
+
+## Forbidden
+
+- Treating "there's an error" as proof the erroring thing should be added back, without running the
+  skill's history and in-flight-work checks first.
+- Silently restoring or silently closing a report when history contradicts it — the skill's gate is
+  to ask the author of the conflicting change, not to settle it unilaterally either way.

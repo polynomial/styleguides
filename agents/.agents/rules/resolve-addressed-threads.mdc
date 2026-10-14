@@ -1,0 +1,21 @@
+---
+description: An agent that agreed with a review thread and made the change it asked for replies with the commit SHA and then resolves the thread. An agent that declines, disputes, defers, or only partly does the ask replies with its reasoning and leaves the thread open.
+alwaysApply: true
+---
+
+# Resolve the threads you fixed, and only those — always apply
+
+Before you resolve, or decide not to resolve, a review thread on a pull request, in this
+repository or any repository it routes to: read the section "Resolve a thread only when you made
+the change" in [`pr-comment-merge-policy/SKILL.md`](../skills/pr-comment-merge-policy/SKILL.md).
+It owns the procedure, the reply wording, and the resolve call.
+
+The policy, in one line: if you agree and fix, you resolve.
+
+## Forbidden
+
+- Resolving a thread you declined, disputed, deferred, or only partly did. Reply with your
+  reasoning and leave it open, so the reviewer and you can discuss it.
+- Resolving a thread before the reply that names the commit SHA and the change is posted.
+- Resolving a thread to end a disagreement. Disagreement is fine and expected.
+- Leaving a thread you fixed open, or silent, because an older rule said agents never resolve.
